@@ -1,0 +1,17 @@
+.WatchPage {
+  background-color: #fff;
+  width: 75%;
+  box-sizing: border-box;
+
+  border-radius: 10px;
+  padding: 20px;
+  display: flex;
+}
+.DetailsSection {
+  width: 70%;
+  border-right: 1px solid #ccc;
+}
+.PlaylistSection {
+  width: 30%;
+  margin-left: 20px;
+}

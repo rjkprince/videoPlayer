@@ -1,24 +1,21 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-
+import classes from './App.module.css';
+import WatchPage from './WatchPage/WatchPage';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={classes.App}>
+      <a href='#' className={classes.HomeBtn}>
+        Back to Home
+      </a>
+      <h1 className={classes.Title}>The Video Player</h1>
+      <div className={classes.WatchPage}>
+        <BrowserRouter>
+          <Switch>
+            <Route path='/' component={WatchPage} />
+          </Switch>
+        </BrowserRouter>
+      </div>
     </div>
   );
 }
