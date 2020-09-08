@@ -5,14 +5,13 @@ import classes from './VideoCard.module.css';
 
 const VideoCard = (props) => {
   return (
-    <Link className={classes.VideoCard} to={'/'}>
+    <Link className={classes.VideoCard} to={`/${props.id}`}>
       <div
         className={`${classes.VideoWrap} ${
-          props.id == props.nowPlaying ? classes.Active : null
+          props.id === props.nowPlaying ? classes.Active : null
         }`}
         onClick={() => {
           window.scrollTo(0, 0);
-          props.changeVideoId(props.id);
         }}
       >
         <img

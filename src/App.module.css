@@ -3,6 +3,10 @@
   color: #fad744;
   font-size: 20px;
   margin-left: 10px;
+  width: fit-content;
+  padding-bottom: 0;
+  text-decoration: underline;
+  cursor: pointer;
 }
 .Title {
   color: #fad744;

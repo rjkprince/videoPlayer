@@ -21,12 +21,7 @@ export default class PlaylistSection extends Component {
   render() {
     const videoArr = this.state.playlist.map((item) => {
       return (
-        <VideoCard
-          key={item.id}
-          nowPlaying={this.props.videoId}
-          {...item}
-          changeVideoId={this.props.changeVideoId}
-        />
+        <VideoCard key={item.id} nowPlaying={this.props.videoId} {...item} />
       );
     });
 

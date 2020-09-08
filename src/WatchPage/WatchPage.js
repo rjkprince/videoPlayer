@@ -16,9 +16,10 @@ export default class WatchPage extends Component {
       isSaved: 'true',
     },
   };
-  changeVideoId = (id) => {
+  componentDidMount = () => {
+    let VideoId = this.props.match.params.VideoId;
     axios
-      .get(`https://5f564c7b32f56200168bd3af.mockapi.io/Video/${id}`)
+      .get(`https://5f564c7b32f56200168bd3af.mockapi.io/Video/${VideoId}`)
       .then((res) => {
         this.setState({
           videoData: res.data,
@@ -26,6 +27,20 @@ export default class WatchPage extends Component {
       })
       .catch((err) => console.log('Data fetching from vimeo failed'));
   };
+  componentDidUpdate = () => {
+    let VideoId = this.props.match.params.VideoId;
+    if (VideoId !== this.state.videoData.id) {
+      axios
+        .get(`https://5f564c7b32f56200168bd3af.mockapi.io/Video/${VideoId}`)
+        .then((res) => {
+          this.setState({
+            videoData: res.data,
+          });
+        })
+        .catch((err) => console.log('Data fetching from vimeo failed'));
+    }
+  };
+
   render() {
     return (
       <div className={classes.WatchPage}>
@@ -33,10 +48,7 @@ export default class WatchPage extends Component {
           <DetailsSection videoData={this.state.videoData} />
         </div>
         <div className={classes.PlaylistSection}>
-          <PlaylistSection
-            changeVideoId={this.changeVideoId}
-            videoId={this.state.videoData.id}
-          />
+          <PlaylistSection videoId={this.state.videoData.id} />
         </div>
       </div>
     );
