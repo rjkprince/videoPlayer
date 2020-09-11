@@ -44,7 +44,7 @@ export default class Login extends Component {
         });
         break;
       case 'suggestion':
-        if (this.state.suggestion.indexOf(e.target.value) != -1) {
+        if (this.state.suggestion.indexOf(e.target.value) !== -1) {
           let temp = [...this.state.suggestion];
           temp.splice(temp.indexOf(e.target.value), 1);
           this.setState({

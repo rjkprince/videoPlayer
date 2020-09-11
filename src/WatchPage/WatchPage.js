@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import classes from './WatchPage.module.css';
 import DetailsSection from './DetailsSection/DetailsSection';
 import PlaylistSection from './PlaylistSection/PlaylistSection';
-import { Link } from 'react-router-dom';
 import axios from 'axios';
 export default class WatchPage extends Component {
   state = {
