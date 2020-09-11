@@ -1,20 +1,28 @@
 import React from 'react';
 import classes from './App.module.css';
 import WatchPage from './WatchPage/WatchPage';
-import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
+import Login from './Login/Login';
+import { BrowserRouter, Route, Switch, Redirect, Link } from 'react-router-dom';
 function App() {
   return (
     <div className={classes.App}>
-      <p className={classes.HomeBtn}>Back to Home</p>
-      <h1 className={classes.Title}>The Video Player</h1>
-      <div className={classes.WatchPage}>
-        <BrowserRouter>
+      <BrowserRouter>
+        <Link to='/' className={classes.HomeBtn}>
+          Back to Home
+        </Link>
+        <Link to='/Register' className={classes.HomeBtn}>
+          Register
+        </Link>
+
+        <h1 className={classes.Title}>The Video Player</h1>
+        <div className={classes.WatchPage}>
           <Switch>
-            <Route exact path='/' render={() => <Redirect to='/1' />} />
-            <Route path='/:VideoId' component={WatchPage} />
+            <Route exact path='/' render={() => <Redirect to='/Video/1' />} />
+            <Route exact path='/Video/:VideoId' component={WatchPage} />
+            <Route exact path='/Register' component={Login} />
           </Switch>
-        </BrowserRouter>
-      </div>
+        </div>
+      </BrowserRouter>
     </div>
   );
 }

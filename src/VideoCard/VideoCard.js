@@ -5,7 +5,7 @@ import classes from './VideoCard.module.css';
 
 const VideoCard = (props) => {
   return (
-    <Link className={classes.VideoCard} to={`/${props.id}`}>
+    <Link className={classes.VideoCard} to={`/Video/${props.id}`}>
       <div
         className={`${classes.VideoWrap} ${
           props.id === props.nowPlaying ? classes.Active : null
